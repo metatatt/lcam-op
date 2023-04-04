@@ -75,9 +75,17 @@
       offButton.classList.remove("active-button");
       offButton.classList.add("inactive-button");
 
-      // Set the media element to the LineCAM video clip and start playback
-      mediaElement.src = "https://practiz2023public.blob.core.windows.net/train-dataset/LineCAM_wide.mp4#t=4,54";
+       // Set the media element to display the image for 1 second
+       mediaElement.src = "https://practiz2023public.blob.core.windows.net/train-dataset/streaming.gif";
+      mediaElement.style.width = "1024px";
+      mediaElement.style.height = "600px";
       mediaElement.play();
+
+      setTimeout(function() {
+      // Set the media element to the LineCAM video clip and start playback
+      mediaElement.src = "https://practiz2023public.blob.core.windows.net/train-dataset/LineCAM_wide.mp4#t=4,50";
+      mediaElement.play();
+       }, 2500);
 
       // Change the h2 text to "Live LineCAM Video" with text flicker effect
       h2Element.textContent = "  -Live Now-";
