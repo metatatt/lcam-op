@@ -9,6 +9,7 @@
     var BotStar = {appId:"s9edc3990-cea2-11ed-afee-918b64365252", mode:"livechat"};
     !function(t,a){var e=function(){(e.q=e.q||[]).push(arguments)};e.q=e.q||[],t.BotStarApi=e;!function(){var t=a.createElement("script");t.type="text/javascript",t.async=1,t.src="https://widget.botstar.com/static/js/widget.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();}(window,document)
   </script>
+
 </head>
 
 <body>
@@ -47,73 +48,7 @@
     </div>
   </footer>
 
-  <script>
-    var onButton = document.getElementById("on-button");
-    var offButton = document.getElementById("off-button");
-    var mediaElement = document.getElementById("video-element");
-    var h2Element = document.querySelector(".hero-text");
-
-    window.onload = function() {
-          // Set the media element to a black rectangle with dimensions 1024x600
-          mediaElement.style.width = "1024px";
-          mediaElement.style.height = "600px";
-          mediaElement.style.backgroundColor = "black";
-
-          // Set OFF button to active state and ON button to inactive state
-          offButton.classList.add("active");
-          onButton.classList.remove("active");
-
-          // Update h2 text
-          h2Element.innerText = "";
-          h2Element.classList.remove("flicker");
-          h2Element.classList.add("flicker");
-    }
-
-    onButton.addEventListener("click", function() {
-      // Set ON button to active state and OFF button to inactive state
-      onButton.classList.add("active-button");
-      offButton.classList.remove("active-button");
-      offButton.classList.add("inactive-button");
-
-       // Set the media element to display the image for 1 second
-       mediaElement.src = "https://practiz2023public.blob.core.windows.net/train-dataset/streaming.gif";
-      mediaElement.style.width = "1024px";
-      mediaElement.style.height = "600px";
-      mediaElement.play();
-
-      setTimeout(function() {
-      // Set the media element to the LineCAM video clip and start playback
-      mediaElement.src = "https://practiz2023public.blob.core.windows.net/train-dataset/LineCAM_wide.mp4#t=4,50";
-      mediaElement.play();
-       }, 2500);
-
-      // Change the h2 text to "Live LineCAM Video" with text flicker effect
-      h2Element.textContent = "  -Live Now-";
-      h2Element.classList.add("flicker");
-    });
-
-    offButton.addEventListener("click", function() {
-      // Set OFF button to active state and ON button to inactive state
-      offButton.classList.add("active-button");
-      onButton.classList.remove("active-button");
-      onButton.classList.add("inactive-button");
-
-      // Set media element to black rectangle with dimensions 1024x600
-      mediaElement.src = "";
-      mediaElement.removeAttribute("autoplay");
-      mediaElement.removeAttribute("loop");
-      mediaElement.removeAttribute("controls");
-      mediaElement.muted = true;
-      mediaElement.style.width = "1024px";
-      mediaElement.style.height = "600px";
-      mediaElement.style.backgroundColor = "black";
-
-      // Update h2 text
-      h2Element.innerText = "";
-      h2Element.classList.remove("flicker");
-    });
-  </script>
-
+  <script src="./app.js" type = "text/javascript"></script>
 </body>
 </html>
 
