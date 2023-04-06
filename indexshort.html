@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>LineCAM-Operator Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="container2">
+      <h1 class= "logo">
+      <img src="https://practiz2023public.blob.core.windows.net/train-dataset/robot-9.png" alt="Logo">
+      </h1>   
+      <p class="hero-text" flicker> </p>
+      <ul class="menu">
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div id="video-control">
+      <div class="container">
+        <div class="media-container">
+          <video id="video-element" width="70%" autoplay loop muted>
+       
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="button-container">
+          <button id="on-button" class = "btn" class="active-button">ON</button>
+          <button id="off-button" class = "btn"class="inactive-button">OFF</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 LineCAM Solutions. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    var onButton = document.getElementById("on-button");
+    var offButton = document.getElementById("off-button");
+    var mediaElement = document.getElementById("video-element");
+    var h2Element = document.querySelector(".hero-text");
+
+    window.onload = function() {
+          // Set the media element to a black rectangle with dimensions 1024x600
+          mediaElement.style.width = "1024px";
+          mediaElement.style.height = "600px";
+          mediaElement.style.backgroundColor = "black";
+
+          // Set OFF button to active state and ON button to inactive state
+          offButton.classList.add("active");
+          onButton.classList.remove("active");
+
+          // Update h2 text
+          h2Element.innerText = "";
+          h2Element.classList.remove("flicker");
+          h2Element.classList.add("flicker");
+    }
+
+    onButton.addEventListener("click", function() {
+      // Set ON button to active state and OFF button to inactive state
+      onButton.classList.add("active-button");
+      offButton.classList.remove("active-button");
+      offButton.classList.add("inactive-button");
+
+       // Set the media element to display the image for 1 second
+       mediaElement.src = "https://practiz2023public.blob.core.windows.net/train-dataset/streaming.gif";
+      mediaElement.style.width = "1024px";
+      mediaElement.style.height = "600px";
+      mediaElement.play();
+
+      setTimeout(function() {
+      // Set the media element to the LineCAM video clip and start playback
+      mediaElement.src = "https://practiz2023public.blob.core.windows.net/train-dataset/LineCAM_wide.mp4#t=4,50";
+      mediaElement.play();
+       }, 2500);
+
+      // Change the h2 text to "Live LineCAM Video" with text flicker effect
+      h2Element.textContent = "  -Live Now-";
+      h2Element.classList.add("flicker");
+    });
+
+    offButton.addEventListener("click", function() {
+      // Set OFF button to active state and ON button to inactive state
+      offButton.classList.add("active-button");
+      onButton.classList.remove("active-button");
+      onButton.classList.add("inactive-button");
+
+      // Set media element to black rectangle with dimensions 1024x600
+      mediaElement.src = "";
+      mediaElement.removeAttribute("autoplay");
+      mediaElement.removeAttribute("loop");
+      mediaElement.removeAttribute("controls");
+      mediaElement.muted = true;
+      mediaElement.style.width = "1024px";
+      mediaElement.style.height = "600px";
+      mediaElement.style.backgroundColor = "black";
+
+      // Update h2 text
+      h2Element.innerText = "";
+      h2Element.classList.remove("flicker");
+    });
+  </script>
+
+</body>
+</html>
