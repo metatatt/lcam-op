@@ -6,21 +6,32 @@
   <title>LineCAM-Operator Page</title>
   <link rel="stylesheet" href="styles.css">
   <script>
+    function WindowsStart() {
+      var date = new Date();
+      var hhmmss = date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'});
+      var widget = BotStarApi.getWidget('botstar-widget');
+      widget.setText(hhmmss);
+    }
+
+    function setContainer2() {
+      var container2 = document.getElementById('container2');
+      container2.innerHTML = container2.innerHTML + '*';
+    }
+
     var BotStar = {appId:"s9edc3990-cea2-11ed-afee-918b64365252", mode:"livechat"};
     !function(t,a){var e=function(){(e.q=e.q||[]).push(arguments)};e.q=e.q||[],t.BotStarApi=e;!function(){var t=a.createElement("script");t.type="text/javascript",t.async=1,t.src="https://widget.botstar.com/static/js/widget.js";var e=a.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();}(window,document)
   </script>
 </head>
 
-<body>
+<body onload="WindowsStart()">
 
   <header>
-    <div class="container2">
+    <div class="container2" id="container2" onfocus="setContainer2()">
       <h1 class= "logo">
       <img src="https://practiz2023public.blob.core.windows.net/train-dataset/robot-9.png" alt="Logo">
+      Theo & 8 Ball
       </h1>   
-      <p class="hero-text" flicker> </p>
-      <ul class="menu">
-      </ul>
+
     </div>
   </header>
 
@@ -47,9 +58,11 @@
     </div>
   </footer>
 
-  <script src="./app.js" type = "text/javascript"></script>
+
 </body>
+
 </html>
+
 
 
 
